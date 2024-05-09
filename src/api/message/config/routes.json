@@ -1,0 +1,13 @@
+{
+    "routes": [
+      {
+        "method": "POST",
+        "path": "/api/messages",
+        "handler": "Message.create",
+        "config": {
+          "policies": []
+        }
+      }
+    ]
+  }
+  
