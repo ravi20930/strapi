@@ -16,12 +16,15 @@ export default {
 
       socket.on("message", async (data) => {
         const { message } = JSON.parse(data);
+        console.log("Got a message from client: " + message);
         try {
+          console.log("Simply storing that message in database...");
           await strapi.entityService.create("api::message.message", {
             data: {
               text: message,
             },
           });
+          console.log("Successfully stored message in database.");
         } catch (error) {
           console.error("Error storing message in database:", error.message);
         }
